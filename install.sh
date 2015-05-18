@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # define pacman packages
+pacman_packages="jenkins git unzip unrar"
 
 # install pre-reqs
 pacman -Sy --noconfirm
