@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # define pacman packages
-pacman_packages="jenkins"
 
 # install pre-reqs
 pacman -Sy --noconfirm
