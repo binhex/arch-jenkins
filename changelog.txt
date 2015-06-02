@@ -1,6 +1,0 @@
-[info] Sun May 24 21:59:08 BST 2015 Jenkins updated to ver 404 
-[info] Sun May 24 22:02:17 BST 2015 Jenkins updated to ver 404 
-[info] Sun May 24 22:04:05 BST 2015 Jenkins updated to ver 1.614
-[info] Tue May 26 16:15:10 BST 2015 Jenkins updated to ver 1.615
-[info] Sat May 30 19:59:11 BST 2015 Jenkins updated to ver 1.615
-[info] Mon Jun  1 12:00:50 BST 2015 Jenkins updated to ver 1.615
