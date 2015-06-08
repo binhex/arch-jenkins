@@ -29,6 +29,9 @@ VOLUME /config
 # expose port for http
 EXPOSE 8090
 
+# expose port for docker api
+EXPOSE 4243
+
 # set environment variables for user nobody
 ENV HOME /home/nobody
 

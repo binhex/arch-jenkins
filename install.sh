@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # define pacman packages
-pacman_packages="jenkins"
+pacman_packages="jenkins docker"
 
 # install pre-reqs
 pacman -Sy --noconfirm
