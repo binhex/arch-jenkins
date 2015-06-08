@@ -8,10 +8,10 @@ MAINTAINER binhex
 ADD *.conf /etc/supervisor/conf.d/
 
 # add install bash script
-ADD install.sh /root/install.sh
+ADD install.sh /root/
 
 # add custom environment file for application
-ADD setup.sh /home/nobody/setup.sh
+ADD jenkins.sh openssh.sh /home/nobody/
 
 # install app
 #############
@@ -31,6 +31,9 @@ EXPOSE 8090
 
 # expose port for docker api
 EXPOSE 4243
+
+# expose port for ssh
+EXPOSE 22
 
 # set environment variables for user nobody
 ENV HOME /home/nobody
