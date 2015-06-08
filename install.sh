@@ -8,8 +8,8 @@ pacman -Sy --noconfirm
 pacman -S --needed $pacman_packages --noconfirm
 
 # set permissions
-chown -R nobody:users /usr/share/java/jenkins/ /etc/conf.d/jenkins /var/cache/jenkins/ /usr/lib/ssh /etc/ssh /usr/bin/sshd
-chmod -R 775 /usr/share/java/jenkins/ /etc/conf.d/jenkins /var/cache/jenkins/ /usr/lib/ssh /etc/ssh /usr/bin/sshd
+chown -R nobody:users /usr/share/java/jenkins/ /etc/conf.d/jenkins /var/cache/jenkins/
+chmod -R 775 /usr/share/java/jenkins/ /etc/conf.d/jenkins /var/cache/jenkins/
 
 # set password for root user
 echo 'root:Jenkins' | chpasswd
