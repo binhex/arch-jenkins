@@ -1,15 +1,21 @@
 #!/bin/bash
 
 # define pacman packages
-pacman_packages="jenkins docker"
+pacman_packages="jenkins docker openssh"
 
 # install pre-reqs
 pacman -Sy --noconfirm
 pacman -S --needed $pacman_packages --noconfirm
 
 # set permissions
-chown -R nobody:users /usr/share/java/jenkins/ /etc/conf.d/jenkins /var/cache/jenkins/
-chmod -R 775 /usr/share/java/jenkins/ /etc/conf.d/jenkins /var/cache/jenkins/
+chown -R nobody:users /usr/share/java/jenkins/ /etc/conf.d/jenkins /var/cache/jenkins/ /usr/lib/ssh /etc/ssh /usr/bin/sshd
+chmod -R 775 /usr/share/java/jenkins/ /etc/conf.d/jenkins /var/cache/jenkins/ /usr/lib/ssh /etc/ssh /usr/bin/sshd
+
+# set password for root user
+echo 'root:Jenkins' | chpasswd
+ 
+# fix sshd for docker usage
+sed -i -e 's/^UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 
 # cleanup
 yes|pacman -Scc
