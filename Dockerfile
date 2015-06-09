@@ -8,7 +8,7 @@ MAINTAINER binhex
 ADD *.conf /etc/supervisor/conf.d/
 
 # add install bash script
-ADD install.sh openssh.sh /root/
+ADD install.sh openssh.sh docker.sh /root/
 
 # add custom environment file for application
 ADD jenkins.sh /home/nobody/
