@@ -4,7 +4,7 @@
 set -e
 
 # define pacman packages
-pacman_packages="jenkins docker openssh"
+pacman_packages="git unzip unrar jenkins openssh"
 
 # install pre-reqs
 pacman -Syu --ignore filesystem --noconfirm
