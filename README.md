@@ -29,7 +29,7 @@ Please replace all user variables in the above command defined by <> with the co
 ```
 docker run -d \
 	--name=jenkins \
-	-v /apps/docker/get_iplayer:/config \
+	-v /apps/docker/jenkins:/config \
 	-v /etc/localtime:/etc/localtime:ro \
 	binhex/arch-jenkins
 ```
