@@ -38,4 +38,4 @@ docker run -d \
 
 N/A
 
-[Support forum](http://lime-technology.com/forum/index.php?topic=38055.0)
+[Support forum](http://lime-technology.com/forum/index.php?topic=45839.0)
