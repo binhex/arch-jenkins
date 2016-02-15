@@ -5,13 +5,13 @@ MAINTAINER binhex
 ##################
 
 # add supervisor conf file for app
-ADD *.conf /etc/supervisor/conf.d/
+ADD setup/*.conf /etc/supervisor/conf.d/
 
 # add install bash script
-ADD install.sh openssh.sh docker.sh /root/
+ADD setup/install.sh openssh.sh docker.sh /root/
 
 # add custom environment file for application
-ADD jenkins.sh /home/nobody/
+ADD setup/jenkins.sh /home/nobody/
 
 # install app
 #############
@@ -38,8 +38,8 @@ EXPOSE 22
 # set environment variables for user nobody
 ENV HOME /home/nobody
 
-# run supervisor
-################
+# set permissions
+#################
 
-# run supervisor
-CMD ["supervisord", "-c", "/etc/supervisor.conf", "-n"]
+# run script to set uid, gid and permissions
+CMD ["/bin/bash", "/root/init.sh"]

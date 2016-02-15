@@ -2,7 +2,7 @@
 
 [Jenkins](https://jenkins-ci.org/)
 
-**Application description**
+**Description**
 
 Jenkins is an open source continuous integration tool written in Java. The project was forked from Hudson after a dispute with Oracle. Jenkins provides continuous integration services for software development. It is a server-based system running in a servlet container such as Apache Tomcat.
 
@@ -13,10 +13,12 @@ Latest stable release of Jenkins from Arch Linux Repo.
 **Usage**
 ```
 docker run -d \
-	--name=<container name> \
-	-v <path for config files>:/config \
-	-v /etc/localtime:/etc/localtime:ro \
-	binhex/arch-jenkins
+    --name=<container name> \
+    -v <path for config files>:/config \
+    -v /etc/localtime:/etc/localtime:ro \
+    -e UID=<uid for user> \
+    -e GID=<gid for user> \
+    binhex/arch-jenkins
 ```
 
 Please replace all user variables in the above command defined by <> with the correct values.
@@ -28,14 +30,20 @@ Please replace all user variables in the above command defined by <> with the co
 **Example**
 ```
 docker run -d \
-	--name=jenkins \
-	-v /apps/docker/jenkins:/config \
-	-v /etc/localtime:/etc/localtime:ro \
-	binhex/arch-jenkins
+    --name=jenkins \
+    -v /apps/docker/jenkins:/config \
+    -v /etc/localtime:/etc/localtime:ro \
+    -e UID=0 \
+    -e GID=0 \
+    binhex/arch-jenkins
 ```
 
 **Notes**
 
-N/A
+User ID (UID) and Group ID (GID) can be found by issuing the following command for the user you want to run the container as:-
+
+```
+id <username>
+```
 
 [Support forum](http://lime-technology.com/forum/index.php?topic=45839.0)

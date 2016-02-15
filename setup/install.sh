@@ -10,10 +10,6 @@ pacman_packages="git unzip unrar jenkins openssh"
 pacman -Syu --ignore filesystem --noconfirm
 pacman -S --needed $pacman_packages --noconfirm
 
-# set permissions
-chown -R nobody:users /usr/share/java/jenkins/ /etc/conf.d/jenkins /var/cache/jenkins/
-chmod -R 775 /usr/share/java/jenkins/ /etc/conf.d/jenkins /var/cache/jenkins/
-
 # set password for root user
 echo 'root:Jenkins' | chpasswd
  
