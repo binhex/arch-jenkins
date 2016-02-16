@@ -38,8 +38,8 @@ else
 fi
 
 # set permissions inside container
-chown -R "${UID}":"${GID}" /usr/share/java/jenkins/ /etc/conf.d/jenkins /var/cache/jenkins/ /root /home/nobody
-chmod -R 775 /usr/share/java/jenkins/ /etc/conf.d/jenkins /var/cache/jenkins/ /root /home/nobody
+chown -R "${UID}":"${GID}" /usr/share/java/jenkins/ /etc/conf.d/jenkins /var/cache/jenkins/ /home/nobody
+chmod -R 775 /usr/share/java/jenkins/ /etc/conf.d/jenkins /var/cache/jenkins/ /home/nobody
 
 echo "[info] Starting Supervisor..."
 
