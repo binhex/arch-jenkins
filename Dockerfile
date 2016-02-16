@@ -10,6 +10,9 @@ ADD setup/*.conf /etc/supervisor/conf.d/
 # add install bash script
 ADD setup/install.sh openssh.sh docker.sh /root/
 
+# add bash scripts to set uid and gid and then set permissions
+ADD setup/init.sh /root/init.sh
+
 # add custom environment file for application
 ADD setup/jenkins.sh /home/nobody/
 
