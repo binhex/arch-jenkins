@@ -7,7 +7,6 @@ set -e
 pacman_packages="git unzip unrar jenkins openssh"
 
 # install pre-reqs
-pacman -Syu --ignore filesystem --noconfirm
 pacman -S --needed $pacman_packages --noconfirm
 
 # set password for root user
