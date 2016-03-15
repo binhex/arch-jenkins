@@ -4,7 +4,7 @@
 set -e
 
 # define pacman packages
-pacman_packages="git unzip unrar jenkins openssh"
+pacman_packages="git unzip unrar openssh"
 
 # install pre-reqs
 pacman -S --needed $pacman_packages --noconfirm
@@ -14,6 +14,9 @@ echo 'root:Jenkins' | chpasswd
  
 # fix sshd for docker usage
 sed -i -e 's/^UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
+
+# call aor script (arch official repo)
+source /root/aor.sh
 
 # cleanup
 yes|pacman -Scc
