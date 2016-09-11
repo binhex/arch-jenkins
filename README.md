@@ -16,6 +16,8 @@ docker run -d \
     --name=<container name> \
     -v <path for config files>:/config \
     -v /etc/localtime:/etc/localtime:ro \
+    -e JAVA_ARGS=<java arguments> \
+    -e JAVA_OPTS=<java options> \
     -e PUID=<uid for user> \
     -e PGID=<gid for user> \
     binhex/arch-jenkins
@@ -33,6 +35,8 @@ docker run -d \
     --name=jenkins \
     -v /apps/docker/jenkins:/config \
     -v /etc/localtime:/etc/localtime:ro \
+    -e JAVA_ARGS=-Xmx512m \
+    -e JAVA_OPTS=-Dhudson.footerURL=http://mycompany.com \
     -e PUID=0 \
     -e PGID=0 \
     binhex/arch-jenkins
