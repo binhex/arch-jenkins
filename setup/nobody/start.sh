@@ -1,15 +1,6 @@
 #!/bin/sh
 # config below is a copy of the configuration file jenkins.conf as supplied by the tarball from arch linux
 
-# if docker run env vars not specified then set to defaults
-if [[ -z "${JAVA_ARGS}" ]]; then
-	export JAVA_ARGS=-Xmx512m
-fi
-
-if [[ -z "${JAVA_OPTS}" ]]; then
-	export JAVA_OPTS=
-fi
-
 # set env variables for jenkins
 export JAVA=/usr/bin/java
 export JENKINS_USER=nobody
@@ -18,7 +9,6 @@ export JENKINS_WAR=/usr/share/java/jenkins/jenkins.war
 export JENKINS_WEBROOT=--webroot=/var/cache/jenkins
 export JENKINS_PORT=--httpPort=8090
 export JENKINS_AJPPORT=--ajp13Port=-1
-export JENKINS_OPTS=
 export JENKINS_COMMAND_LINE="$JAVA $JAVA_ARGS $JAVA_OPTS -jar $JENKINS_WAR $JENKINS_WEBROOT $JENKINS_PORT $JENKINS_AJPPORT $JENKINS_OPTS"
 
 # run jenkins
