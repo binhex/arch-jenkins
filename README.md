@@ -18,6 +18,7 @@ docker run -d \
     -v /etc/localtime:/etc/localtime:ro \
     -e JAVA_ARGS=<java arguments> \
     -e JAVA_OPTS=<java options> \
+    -e UMASK=<umask for created files> \
     -e PUID=<uid for user> \
     -e PGID=<gid for user> \
     binhex/arch-jenkins
@@ -37,6 +38,7 @@ docker run -d \
     -v /etc/localtime:/etc/localtime:ro \
     -e JAVA_ARGS=-Xmx512m \
     -e JAVA_OPTS=-Dhudson.footerURL=http://mycompany.com \
+    -e UMASK=000 \
     -e PUID=0 \
     -e PGID=0 \
     binhex/arch-jenkins
