@@ -3,6 +3,13 @@
 # exit script if return code != 0
 set -e
 
+# resetting to live repo and using pacman for this app.
+echo 'Server = http://mirror.bytemark.co.uk/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist
+echo 'Server = http://archlinux.mirrors.uk2.net/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
+
+# sync package databases for pacman
+pacman -Syyu --noconfirm
+
 # build scripts
 ####
 
@@ -19,21 +26,12 @@ mv /tmp/scripts-master/shell/arch/docker/*.sh /root/
 ####
 
 # define pacman packages
-pacman_packages="git"
+pacman_packages="git jenkins"
 
 # install compiled packages using pacman
 if [[ ! -z "${pacman_packages}" ]]; then
 	pacman -S --needed $pacman_packages --noconfirm
 fi
-
-# aor packages
-####
-
-# define arch official repo (aor) packages
-aor_packages="jenkins"
-
-# call aor script (arch official repo)
-source /root/aor.sh
 
 # aur packages
 ####
