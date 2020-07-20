@@ -38,7 +38,7 @@ fi
 source upd.sh
 
 # define pacman packages
-pacman_packages="git jenkins"
+pacman_packages="git fontconfig jenkins"
 
 # install compiled packages using pacman
 if [[ ! -z "${pacman_packages}" ]]; then
@@ -58,7 +58,7 @@ source aur.sh
 ####
 
 # define comma separated list of paths 
-install_paths="/usr/share/java/jenkins,/home/nobody,/var/cache"
+install_paths="/usr/share/java/jenkins,/home/nobody,/var/cache,/var/cache/jenkins"
 
 # split comma separated string into list for install paths
 IFS=',' read -ra install_paths_list <<< "${install_paths}"
