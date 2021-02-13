@@ -38,7 +38,7 @@ fi
 source upd.sh
 
 # define pacman packages
-pacman_packages="git fontconfig jenkins"
+pacman_packages="git fontconfig jenkins openssh"
 
 # install compiled packages using pacman
 if [[ ! -z "${pacman_packages}" ]]; then
