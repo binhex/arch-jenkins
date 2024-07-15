@@ -30,15 +30,6 @@ RUN chmod +x /root/*.sh /home/nobody/*.sh && \
 # docker settings
 #################
 
-# expose port for http
-EXPOSE 8090
-
-# expose port for docker api
-EXPOSE 4243
-
-# expose port for ssh
-EXPOSE 22
-
 # set environment variables for user nobody
 ENV HOME=/home/nobody
 
