@@ -61,10 +61,8 @@ source aur.sh
 # container perms
 ####
 
-mkdir -p '/var/cache/jenkins'
-
 # define comma separated list of paths
-install_paths="/usr/share/java/jenkins,/home/nobody,/var/cache/jenkins"
+install_paths="/usr/share/java/jenkins,/home/nobody,/var/cache"
 
 # split comma separated string into list for install paths
 IFS=',' read -ra install_paths_list <<< "${install_paths}"
