@@ -61,6 +61,8 @@ source aur.sh
 # container perms
 ####
 
+mkdir -p '/var/cache/jenkins'
+
 # define comma separated list of paths
 install_paths="/usr/share/java/jenkins,/home/nobody,/var/cache/jenkins"
 
