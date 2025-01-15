@@ -61,10 +61,11 @@ source aur.sh
 # container perms
 ####
 
-mkdir -p /var/cache/jenkins
+# delete webroot if it already exists
+rm -rf '/var/cache/jenkins'
 
 # define comma separated list of paths
-install_paths="/usr/share/java/jenkins,/home/nobody,/var/cache"
+install_paths="/usr/share/java/jenkins,/home/nobody"
 
 # split comma separated string into list for install paths
 IFS=',' read -ra install_paths_list <<< "${install_paths}"
