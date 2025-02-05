@@ -62,10 +62,10 @@ source aur.sh
 ####
 
 # delete webroot if it already exists
-rm -rf '/var/cache/jenkins'
+#rm -rf '/var/cache/jenkins'
 
 # define comma separated list of paths
-install_paths="/usr/share/java/jenkins,/var/cache,/home/nobody"
+install_paths="/usr/share/java/jenkins,/var/cache/jenkins,/home/nobody"
 
 # split comma separated string into list for install paths
 IFS=',' read -ra install_paths_list <<< "${install_paths}"
