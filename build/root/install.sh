@@ -65,7 +65,7 @@ source aur.sh
 rm -rf '/var/cache/jenkins'
 
 # define comma separated list of paths
-install_paths="/usr/share/java/jenkins,/home/nobody"
+install_paths="/usr/share/java/jenkins,/var/cache,/home/nobody"
 
 # split comma separated string into list for install paths
 IFS=',' read -ra install_paths_list <<< "${install_paths}"
