@@ -22,6 +22,8 @@ docker run -d \
     -v /etc/localtime:/etc/localtime:ro \
     -e JAVA_ARGS=<java arguments> \
     -e JAVA_OPTS=<java options> \
+    -e ENABLE_STARTUP_SCRIPTS=<yes|no> \
+    -e STARTUP_SCRIPTS_MODE=<wait|parallel> \
     -e HEALTHCHECK_COMMAND=<command> \
     -e HEALTHCHECK_ACTION=<action> \
     -e HEALTHCHECK_HOSTNAME=<hostname> \
@@ -48,6 +50,8 @@ docker run -d \
     -e JAVA_ARGS=-Xmx512m \
     -e JAVA_OPTS=-Dhudson.footerURL=\
         [http://mycompany.com](http://mycompany.com) \
+    -e ENABLE_STARTUP_SCRIPTS=no \
+    -e STARTUP_SCRIPTS_MODE=wait \
     -e UMASK=000 \
     -e PUID=0 \
     -e PGID=0 \
@@ -55,6 +59,14 @@ docker run -d \
 ```
 
 ## Notes
+
+`ENABLE_STARTUP_SCRIPTS` when set to `yes` (default `no`) will allow a user to
+install additional packages from the official Arch Repository or the Arch User
+Repository (AUR) via scripts located in the folder `/config/jenkins/scripts/`.
+
+`STARTUP_SCRIPTS_MODE` controls how those scripts are executed, set to `wait`
+(default) to run each script in turn and wait for it to complete before the next
+script runs, or `parallel` to run all scripts at the same time.
 
 User ID (PUID) and Group ID (PGID) can be found by issuing the following command
 for the user you want to run the container as:-

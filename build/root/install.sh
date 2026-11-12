@@ -98,22 +98,24 @@ rm /tmp/permissions_heredoc
 ####
 
 cat <<'EOF' > /tmp/envvars_heredoc
-export JAVA_ARGS=$(echo "${JAVA_ARGS}" | sed -e 's~^[ \t]*~~;s~[ \t]*$~~')
-if [[ ! -z "${JAVA_ARGS}" ]]; then
-	echo "[info] JAVA_ARGS defined as '${JAVA_ARGS}'" | ts '%Y-%m-%d %H:%M:%.S'
-else
-	echo "[warn] JAVA_ARGS not defined,(via -e JAVA_ARGS), defaulting to '-Xmx512m'" | ts '%Y-%m-%d %H:%M:%.S'
-	export JAVA_ARGS="-Xmx512m"
-fi
 
-export JAVA_OPTS=$(echo "${JAVA_OPTS}" | sed -e 's~^[ \t]*~~;s~[ \t]*$~~')
-if [[ ! -z "${JAVA_OPTS}" ]]; then
-	echo "[info] JAVA_OPTS defined as '${JAVA_OPTS}'" | ts '%Y-%m-%d %H:%M:%.S'
-else
-	echo "[warn] JAVA_OPTS not defined,(via -e JAVA_OPTS), defaulting to null value" | ts '%Y-%m-%d %H:%M:%.S'
-	export JAVA_OPTS=""
-fi
+# source in utility functions, need process_env_var
+source utils.sh
 
+# Define environment variables to process
+# Format: "VAR_NAME:DEFAULT_VALUE:REQUIRED:MASK"
+env_vars=(
+	"JAVA_ARGS:-Xmx512m:false:false"
+	"JAVA_OPTS::false:false"
+	"ENABLE_STARTUP_SCRIPTS:no:false:false"
+	"STARTUP_SCRIPTS_MODE:wait:false:false"
+)
+
+# Process each environment variable
+for env_var in "${env_vars[@]}"; do
+	IFS=':' read -r var_name default_value required mask_value <<< "${env_var}"
+	process_env_var "${var_name}" "${default_value}" "${required}" "${mask_value}"
+done
 EOF
 
 # replace permissions placeholder string with contents of file (here doc)
